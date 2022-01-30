@@ -27,6 +27,24 @@ public class StreamStudy {
                 .limit(3)
                 .collect(toList());
 
-        System.out.println(threeHighCaloriesDishNames);
+    //    System.out.println(threeHighCaloriesDishNames);
+
+
+        List<String> names =
+                menu.stream()
+                    .filter(dish -> {
+                        System.out.println("filtering: "+ dish.getName());
+                        return dish.getCalories() > 300;
+                    }) // 필터링한 요리 명을 출력
+                    .map(dish -> {
+                        System.out.println("mapping: "+ dish.getName());
+                        return dish.getName();
+                    })// 추출한 요리명을 출력한다.
+                    .limit(3)
+                    .collect(toList());
+     //   System.out.println(names);
+
+        menu.stream().forEach(System.out::println); // menu 에서 만든 스트림의 모든 요리를 출력
+
     }
 }
