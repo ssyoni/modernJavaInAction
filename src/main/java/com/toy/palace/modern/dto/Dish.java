@@ -1,4 +1,4 @@
-package com.toy.palace.modern.chapter4;
+package com.toy.palace.modern.dto;
 
 public class Dish {
 

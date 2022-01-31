@@ -1,5 +1,7 @@
 package com.toy.palace.modern.chapter4;
 
+import com.toy.palace.modern.dto.Dish;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
