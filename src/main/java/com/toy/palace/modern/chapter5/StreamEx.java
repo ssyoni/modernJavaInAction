@@ -4,6 +4,7 @@ import com.toy.palace.modern.dto.Dish;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 
@@ -98,5 +99,22 @@ public class StreamEx {
                                   .map(j -> new int[]{i,j})
                 )
                 .collect(toList());
+
+
+        /*anyMatch : 프레디케이트가 적어도 한 요소와 일치하는지 확인*/
+        if (menu.stream().anyMatch(Dish::isVegetarian)){
+            System.out.println("This menu is vegetarian friendly !!!");
+        }
+        /*allMath : 모든 요소가 프레디케이트와 일치하는지 확인*/
+        boolean isHealthy = menu.stream().allMatch(dish -> dish.getCalories() < 1000);
+        System.out.println("isHealthy : "+isHealthy);
+
+        /*noneMatch : 모든 요소아 프레디케이트가 일치하지 않는지 확인*/
+        boolean isHealthy2 = menu.stream().noneMatch(dish -> dish.getCalories() >= 1000);
+
+        /*문제) map과 reduce 메서드를 이용해서 스트림의 요리 개수를 계산하시요.*/
+        int cnt = menu.stream().map(dish -> 1).reduce(0,(a,b)->a+b);
+        System.out.println("요리 갯수 : "+cnt);
+
     }
 }
